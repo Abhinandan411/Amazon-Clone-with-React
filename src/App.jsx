@@ -27,9 +27,9 @@ function App() {
   const [cart, setCart] = useState([]);
 
   // console.log(filteredProduct);
+ console.log(products);
 
-
-  console.log(cart);
+  // console.log(cart);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
@@ -67,7 +67,7 @@ function App() {
 
   }
   useEffect(() => {
-    calling();
+    // calling();
   }, []);
 
   // if (loading) return <p>Loading...</p>;
@@ -82,21 +82,51 @@ function App() {
 
 
   function handleAddtoCart(e, product) {
-    e.preventDefault()
-    setCart([...cart, product]);
-    toast.success("Item added to cart");
-  }
+    e.preventDefault();
+    // Check if the product is already in the cart
+    const existingProductIndex = cart.findIndex(item => item.asin === product.asin);
+
+    let updatedCart;
+    if (existingProductIndex !== -1) {
+        // Product is already in the cart, update the quantity
+        updatedCart = cart.map((item, index) =>
+            index === existingProductIndex
+                ? { ...item, quantity: item.quantity + 1 }
+                : item
+        );
+        setCart(updatedCart);
+        toast.success(`Increased quantity of ${product.product_title} to ${updatedCart[existingProductIndex].quantity}`, {
+          position: "top-center",
+          autoClose: 1000
+      });
+    } else {
+        // Product is not in the cart, add it
+        updatedCart = [...cart, { ...product, quantity: 1 }];
+        setCart(updatedCart);
+        toast.success(`Added ${product.product_title} to the cart`, {
+          position: "top-center",
+          autoClose: 1000
+      });
+    }
+}
+
+
 
   function handleDeleteitem(e, product) {
     e.preventDefault();
     setCart(cart.filter(item => item !== product));
-    toast.success("Item removed from Cart");
+    toast.success(`Item removed from cart`, {
+      position: "top-center",
+      autoClose: 1000
+  });
   }
 
   function filterData(val) {
     console.log(val);
     setFilteredProduct(data.data.products[val]);
   }
+
+
   return (
     <>
       <BrowserRouter>
