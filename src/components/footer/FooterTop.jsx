@@ -4,7 +4,8 @@ function FooterTop() {
     return (
         <>
             <div className='bg-slate-700'>
-                 <button className='w-full bg-amazon_light_blue py-2 text-white'>Back to top</button>
+                
+                 <button className='w-full bg-amazon_light_blue py-2 text-white' onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>Back to top</button>
                 <div className='max-w-5xl mx-auto px-4 py-6 w- flex flex-wrap justify-between text-gray-300'>
                     {/* Column 1 */}
                     <div className='w-full sm:w-1/2 lg:w-1/4 mb-6 sm:mb-0'>
