@@ -1,6 +1,6 @@
 # 🛒Amazon Clone ( A ecommerce website  )
 
-# [Live Link: ](https://bespoke-squirrel-543289.netlify.app/)
+# [Live Link: ](https://amazon-ui-clone-with-react.vercel.app/)
  
  ## 🏷️Features
 
