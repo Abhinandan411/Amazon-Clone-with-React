@@ -29,7 +29,7 @@ function Hero() {
         </div>
         <div className="w-full md:w-[330px] bg-white p-4 flex flex-col gap-4">
           <h1 className="font-bold text-xl">Up to 50% off | Make a formal man with formal shoe</h1>
-          <img src="https://th.bing.com/th/id/OIP.M6Hzguc1wLDz8XTZuzBvqwHaHW?w=533&h=529&rs=1&pid=ImgDetMain" className="w-full h-[276px]" alt="product image" />
+          <img src="https://redtape.com/cdn/shop/files/RTE5612B_1.jpg?v=1727185294" className="w-full h-[276px]" alt="product image" />
         
         </div>
         <div className="w-full md:w-[330px] bg-white p-4 flex flex-col gap-4">
